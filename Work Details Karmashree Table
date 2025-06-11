@@ -1,0 +1,19 @@
+// Step 1: Find the dropdown
+const dropdown = document.querySelector('select.rounded-lg');
+
+if (dropdown) {
+  // Step 2: Add a new option for "Show ALL" (optional)
+  const allOption = document.createElement('option');
+  allOption.value = '9999'; // Arbitrarily high number
+  allOption.textContent = 'Show ALL';
+  dropdown.appendChild(allOption);
+
+  // Step 3: Set the value to load all entries
+  dropdown.value = '9999';
+
+  // Step 4: Trigger the change event to reload data
+  dropdown.dispatchEvent(new Event('change'));
+  console.log('Dropdown updated to load ALL entries!');
+} else {
+  console.error('Dropdown not found. Check the class name.');
+}
