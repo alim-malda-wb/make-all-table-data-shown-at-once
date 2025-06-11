@@ -1,0 +1,19 @@
+// Step 1: Find the dropdown
+const dropdown = document.querySelector('select.px-3.py-2.border.border-gray-300.rounded-lg');
+
+if (dropdown) {
+  // Step 2: Add a new "Show ALL" option (if needed)
+  const allOption = document.createElement('option');
+  allOption.value = '9999'; // High number to force "all"
+  allOption.textContent = 'Show ALL entries';
+  dropdown.appendChild(allOption);
+
+  // Step 3: Set the dropdown to the new value
+  dropdown.value = '9999';
+
+  // Step 4: Trigger the change event (so the table reloads)
+  dropdown.dispatchEvent(new Event('change'));
+  console.log('Dropdown changed to load ALL data!');
+} else {
+  console.error('Dropdown not found. Check the class name.');
+}
