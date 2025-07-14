@@ -1,0 +1,15 @@
+(async function expandAllViewMore() {
+    let keepGoing = true;
+    while (keepGoing) {
+        keepGoing = false;
+        document.querySelectorAll('*').forEach(el => {
+            if (el.textContent.trim() === 'View More') {
+                el.click();
+                keepGoing = true;
+            }
+        });
+        // wait a short time for new content to load
+        await new Promise(resolve => setTimeout(resolve, 300));
+    }
+    console.log("✅ All 'View More' exhausted!");
+})();
